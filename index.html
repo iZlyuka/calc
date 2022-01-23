@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+       `use strict`
+       let res = 0
+       function calc(action, a, b){
+           if ((action == 0 ) || (a == '') || (b == '')){
+               return 'Error';
+           }
+           else if ((action != '+') && (action != '-') && (action != '*') && (action != '/')){
+               return 'unknown operation';
+           }
+           else{
+                if (action == '+'){
+                    res = +a + +b;
+                }
+                else if (action == '*'){
+                    res = a * b;
+                }
+                else if (action == '/'){
+                    res = a / b;
+                }
+                else if (action == '-'){
+                    res = a - b;
+                }
+            }
+            if (Number.isInteger(res)){
+                return res;
+            }
+            else{
+                return 'Error';
+            }
+        }
+       let a = prompt('Write a', '');
+       let b = prompt('Write b', '');
+       act = prompt('Что сделать? (+, -, *, /)', '')
+       calck = calc(act ,a, b);
+       alert (calck);
+    </script>
+</body>
+
+</html>
