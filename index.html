@@ -11,40 +11,28 @@
 <body>
     <script>
        `use strict`
-       let res = 0
-       function calc(action, a, b){
-           if ((action == 0 ) || (a == '') || (b == '')){
-               return 'Error';
-           }
-           else if ((action != '+') && (action != '-') && (action != '*') && (action != '/')){
-               return 'unknown operation';
-           }
-           else{
-                if (action == '+'){
-                    res = +a + +b;
-                }
-                else if (action == '*'){
-                    res = a * b;
-                }
-                else if (action == '/'){
-                    res = a / b;
-                }
-                else if (action == '-'){
-                    res = a - b;
-                }
-            }
-            if (Number.isInteger(res)){
-                return res;
-            }
-            else{
-                return 'Error';
-            }
+       let a = prompt('Write first number', '');
+       let b = prompt('Write second number', '');
+       let res = {
+           sum: +a + +b,
+           sub: a - b,
+           mult: a * b,
+           div: a / b, 
+       }
+       let operation = prompt('Что сделать? (sum, sub, mult, div)', '')
+       if ((operation == 0 ) || (a == '') || (b == '')){
+               alert ('Error');
         }
-       let a = prompt('Write a', '');
-       let b = prompt('Write b', '');
-       act = prompt('Что сделать? (+, -, *, /)', '')
-       calck = calc(act ,a, b);
-       alert (calck);
+        else if (res[operation] === undefined){
+               alert ('unknown operation');
+        }
+        if (Number.isInteger(res[operation])){
+           alert(res[operation]); 
+        }
+        else{
+            alert('Error');
+        }
+       
     </script>
 </body>
 
